@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+.hangman-wrapper {
+    margin-left: 5vw;
+    margin-top: 5vh;
+    font-size: 35px;
+}
+
+.lifes, .wordsFoun, .points, .letterNotInWord {
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+}
+
+.new-game {
+    margin-left: 5vw;
+    margin-top: 5vh;
+}
+
+button {
+    font-size: 30px;
+    margin-top: 2vh;
+    padding: 20px 30px;
+}
+
+.board {
+    margin-top: 5vh;
+}
+
+.card {
+    display: inline;
+    background-color: #d0d0d0;
+    border: 1px solid black;
+    padding: 20px 35px;
+    
+}
+
+.letters {
+    margin-top: 4vh;
+    margin-left: 4vw;
+}
