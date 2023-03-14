@@ -27,10 +27,8 @@ let lettersNumber;
 // -------------------------
 // >> wordsBank.js (all words to play the game)
 
-   
-// draw word to play:
-
 const startNewHangmanGame = () => {
+    letterBtns.forEach(btn => btn.disabled = false);
     drawWordToPlay()
     console.log(wordToPlay);
     createBoard();
@@ -39,12 +37,12 @@ const startNewHangmanGame = () => {
 
 // Draw word to play
 const drawWordToPlay = () => {
-    letterBtns.forEach(btn => btn.disabled = false); 
     let currentWord = words[Math.floor(Math.random() * words.length)];
     // create array from drawn word:
     wordToPlay = Array.from(currentWord.name);
     lettersNumber = wordToPlay.length;
 }
+
 // set game:
 const setNewGameElements = () => {
     startBtn.disabled = true;
@@ -73,7 +71,6 @@ let letterToCheck
 // compare if chosen button with letter id is correct::
 const checkLetter = (e) => {
     letterToCheck = e.srcElement.attributes.id.nodeValue;
-    // let letterFound;
     let buttonInUse = e.srcElement;
     buttonInUse.disabled = true;
 
@@ -85,9 +82,7 @@ const checkLetter = (e) => {
         // boolean to remove life if incorrect
         letterFound = true;
     } 
-   
   }
-//   delate life point if letter incorrect
     delateLifePoint()
 }
 
@@ -107,29 +102,23 @@ const delateLifePoint = () => {
         message.textContent = "Wygrałeś";
         number++;
         points.textContent = `Zdobyte punkty: ${number}`;
+        
+
+        // 
         setTimeout(() => {
             startNewGame()
         }, 2000) ;
         wordCollection();
       }
-    
-
 }
-
-
 // ------------------------------------------------
 // display collection of found words::
     const wordCollection = () => {
-    // let addToCollection = wordToPlay.join("");
-    // allWordsFound.push(addToCollection);
-
-
     let nextWordToCollection = " ";    
-   for(let i=0; i<wordToPlay.length; i++){
+    for(let i=0; i<wordToPlay.length; i++){
     nextWordToCollection += wordToPlay[i]
    }
    allWordsFound.push(nextWordToCollection)
-   
 }
 
 // --------------------------------------------
